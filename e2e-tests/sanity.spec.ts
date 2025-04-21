@@ -14,7 +14,7 @@ test("pokemon details page", async ({ page }) => {
   test.slow();
   await page.goto("/pokemon/1");
 
-  // await expect(page.getByText("Loading...")).toBeVisible();
+  await expect(page.getByText("Loading...")).toBeVisible();
 
   await expect(page.getByRole("heading", { name: "bulbasaur" })).toBeVisible({
     timeout: 50000,
