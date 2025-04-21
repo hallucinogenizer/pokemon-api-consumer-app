@@ -1,7 +1,10 @@
+"use client";
+import { usePokemonList } from "@/spec/pokemon/pokemon";
+
 export default function Home() {
-  return (
-    <div>
-      Hello World
-    </div>
-  );
+  const { data } = usePokemonList();
+
+  console.log("data:", data);
+
+  return <div>Hello World</div>;
 }
