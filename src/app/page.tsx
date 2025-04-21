@@ -1,10 +1,18 @@
 "use client";
+import { PageNavigator } from "@/components/PageNavigator";
 import { PokemonCard } from "@/components/PokemonCard";
 import { PokemonLoadingCard } from "@/components/PokemonLoadingCard";
 import { usePokemonList } from "@/spec/pokemon/pokemon";
+import { useState } from "react";
+
+const PAGE_SIZE = 20;
 
 export default function Home() {
-  const { data, isLoading, isError } = usePokemonList();
+  const [pageIndex, setPageIndex] = useState<number>(0);
+  const { data, isLoading, isError } = usePokemonList({
+    offset: pageIndex,
+    limit: PAGE_SIZE,
+  });
   const results = data?.data?.results;
 
   if (isError) {
@@ -23,6 +31,12 @@ export default function Home() {
               <PokemonCard key={pokemon.url} pokemon={pokemon} />
             ))}
       </main>
+      <PageNavigator
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
+        pageSize={PAGE_SIZE}
+        totalResults={data?.data.count}
+      />
     </div>
   );
 }
