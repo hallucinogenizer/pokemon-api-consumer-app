@@ -5,12 +5,12 @@ export default function Home() {
   const { data, isLoading, isError } = usePokemonList();
   const results = data?.data?.results;
 
-  if (!results || isError) {
-    return <div>Could not load pokemons.</div>;
-  }
-
   if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (!results || isError) {
+    return <div>Could not load pokemons.</div>;
   }
 
   return (
