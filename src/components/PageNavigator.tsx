@@ -3,7 +3,6 @@ import { Dispatch, SetStateAction } from "react";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
