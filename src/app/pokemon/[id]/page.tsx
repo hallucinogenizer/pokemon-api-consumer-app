@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+
 import { usePokemonRetrieve } from "@/spec/pokemon/pokemon";
 import Link from "next/link";
 import { useParams } from "next/navigation";
