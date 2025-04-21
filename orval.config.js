@@ -7,6 +7,9 @@ module.exports = {
       schemas: "src/spec/model",
       client: "react-query",
       httpClient: "fetch",
+      baseUrl: {
+        getBaseUrlFromSpecification: true,
+      },
     },
   },
 };
