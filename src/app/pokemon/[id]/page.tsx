@@ -6,7 +6,11 @@ import { useParams } from "next/navigation";
 
 export default function PokemonDetailsPage() {
   const { id } = useParams<{ id: string }>();
-  const { data } = usePokemonRetrieve(id);
+  const { data, isLoading } = usePokemonRetrieve(id);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-6">
